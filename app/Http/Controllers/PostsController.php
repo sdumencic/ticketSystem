@@ -14,8 +14,11 @@ class PostsController extends Controller
      */
     
     public function index() {
-        $posts = Post::all();
+        //$posts = Post::all()->paginate(1); //koliko po stranici
+        $posts = Post::orderBy('title', 'asc')->paginate(1);
         return view('posts.index')->with('posts', $posts);
+        //ako zelimo sortirati $posts = Post::orderBy('title', 'asc' ili 'desc')->get();
+        //ako zelimo s SQL use DB; i naredba $posts = DB::select('SELECT * FROM posts');
     }
 
     /**
@@ -47,7 +50,8 @@ class PostsController extends Controller
      */
 
      public function show($id) {
-         //
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
      }
 
      /**
