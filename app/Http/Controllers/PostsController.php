@@ -15,7 +15,7 @@ class PostsController extends Controller
     
     public function index() {
         //$posts = Post::all()->paginate(1); //koliko po stranici
-        $posts = Post::orderBy('title', 'asc')->paginate(1);
+        $posts = Post::orderBy('title', 'asc')->paginate(10);
         return view('posts.index')->with('posts', $posts);
         //ako zelimo sortirati $posts = Post::orderBy('title', 'asc' ili 'desc')->get();
         //ako zelimo s SQL use DB; i naredba $posts = DB::select('SELECT * FROM posts');
@@ -44,7 +44,12 @@ class PostsController extends Controller
         'body' => 'required'
         ]);
 
-        return 123;
+        $post = new Post;
+        $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Ticket Created'); //promijeni redirect
      }
 
      /**
@@ -67,7 +72,8 @@ class PostsController extends Controller
      */
 
      public function edit($id) {
-         //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
      }
 
      /**
@@ -79,7 +85,17 @@ class PostsController extends Controller
      */
 
      public function update(Request $request, $id) {
-         //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+            ]);
+    
+            $post = Post::find($id);
+            $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
+            $post->body = $request->input('body');
+            $post->save();
+    
+            return redirect('/posts')->with('success', 'Ticket Updated'); //promijeni redirect
      }
 
      /**
@@ -90,6 +106,8 @@ class PostsController extends Controller
      */
 
      public function destroy($id) {
-         //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Ticket Deleted');
      }
 }
