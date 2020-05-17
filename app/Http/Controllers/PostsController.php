@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace TicketSystem\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use TicketSystem\Post;
 
 class PostsController extends Controller
 {
@@ -47,6 +47,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
         $post->body = $request->input('body');
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         return redirect('/posts')->with('success', 'Ticket Created'); //promijeni redirect

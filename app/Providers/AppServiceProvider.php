@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace TicketSystem\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

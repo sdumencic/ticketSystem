@@ -14,6 +14,9 @@
                         </div>
                     @endif
 
+                    <a href="/posts/create" class="btn btn-primary">Create Ticket</a>
+                    <hr>
+                        <h3>Your Tickets</h3>
                     You are logged in!
                 </div>
             </div>

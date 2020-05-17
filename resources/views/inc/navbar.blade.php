@@ -64,6 +64,13 @@
                         </li>
                     @endif
                 @else
+
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/home">Dashboard</a>
+                  </li>
+                  <li><a class="nav-link" href="/posts/create">Create Ticket</a></li>
+                </ul>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -74,6 +81,12 @@
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
+                            </a>
+                            <a class="dropdown-item" href="/posts/create">
+                               Create Ticket
+                            </a>
+                            <a class="dropdown-item" href="/home">
+                                Dashboard
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -86,3 +99,5 @@
         </div>
     </div>
 </nav>
+
+<br>

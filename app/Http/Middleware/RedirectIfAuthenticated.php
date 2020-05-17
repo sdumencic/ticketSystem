@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace TicketSystem\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
+use TicketSystem\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

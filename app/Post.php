@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace TicketSystem;
 
 use Illuminate\Database\Eloquent\Model;
 
