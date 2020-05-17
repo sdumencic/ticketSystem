@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
     <h1>Create Ticket</h1>
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}
     <hr>

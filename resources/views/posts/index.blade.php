@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
     <h1>Tickets</h1>
     @if(count($posts) > 0)
         @foreach($posts as $post)
