@@ -25,7 +25,7 @@ class AddUserIdToTickets extends Migration
      */
     public function down()
     {
-        Schema::table('tickets', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn('user_id');
         });
     }

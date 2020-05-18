@@ -41,12 +41,14 @@ class PostsController extends Controller
      public function store(Request $request) {
         $this->validate($request, [
         'title' => 'required',
-        'body' => 'required'
+        'body' => 'required',
+        'priority' => 'required'
         ]);
 
         $post = new Post;
         $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
         $post->body = $request->input('body');
+        $post->priority = $request->input('priority');
         $post->user_id = auth()->user()->id;
         $post->save();
 
@@ -94,6 +96,7 @@ class PostsController extends Controller
             $post = Post::find($id);
             $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
             $post->body = $request->input('body');
+            $post->priority = $request->input('priority');
             $post->save();
     
             return redirect('/posts')->with('success', 'Ticket Updated'); //promijeni redirect

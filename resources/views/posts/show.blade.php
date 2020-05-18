@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <br>
-    <!--<a href = "/posts" class = "btn">Go back</a> <!-- btnclass nema pozadinu -->
+    <br>    
     <h1>{{$post->title}}</h1>
-    <small>Written on {{$post->created_at}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
     <hr>
     <div>
         {{$post->body}}
