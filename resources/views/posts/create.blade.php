@@ -19,10 +19,11 @@
             {{Form::select('priority', ['high' => 'High', 'medium' => 'Medium', 'low' => 'Low'], 'low', ['class' => 'form-control'])}}
         </div>
         <h2>Attachments</h2>
+        <p>If you have more files to upload, please put them in a folder, zip it and upload it.</p>
         <div class="form-group">
             {{Form::file('file')}}
         <div>
         <hr>
-        {{Form::submit('Submit', ['class' => "btn btn-primary"])}}  
+        {{Form::submit('Submit', ['class' => "btn btn-primary"])}}          
     {!! Form::close() !!}
 @endsection

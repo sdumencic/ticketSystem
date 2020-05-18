@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php ($imageExtensions = ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'svg', 'svgz',
+'cgm', 'djv', 'djvu', 'ico', 'ief','jpe', 'pbm', 'pgm', 'pnm', 'ppm',
+'ras', 'rgb', 'tif', 'tiff', 'wbmp', 'xbm', 'xpm', 'xwd'])
+
 @section('content')
     <br>    
     <h1>{{$post->title}}</h1>
@@ -25,7 +29,25 @@
     </div><br>
     
     <br>
-    <img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">
+    <h2>Attachments</h2>
+    <!--<div>{{$post->file}}</div>-->
+    @if($post->file) 
+    <a href = "/storage/file/{{$post->file}}/">{{$post->file}}</a>
+    <!--<img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">-->
+        
+        <!--@if(pathinfo(storage_path().'/storage/file/'.$post->file, PATHINFO_EXTENSION) == 'jpg')
+            <img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">
+        @endif-->
+
+        @if(in_array(pathinfo(storage_path().'/storage/file/'.$post->file, PATHINFO_EXTENSION), $imageExtensions))
+            <img style="max-width:30%; max-height:30%;" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">
+        @endif
+
+    @else
+    <div class="form-control">
+        No Attachments
+    </div><br>
+    @endif
     <hr>
     <a href = "/posts/{{$post->id}}/edit" class = "btn btn-primary">Edit</a>
     
