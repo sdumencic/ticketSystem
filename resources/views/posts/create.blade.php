@@ -3,7 +3,7 @@
 @section('content')
     <br>
     <h1>Create Ticket</h1>
-    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <hr>
         <div class = "form-group">
             <h2>{{Form::label('title', 'Title')}}</h2>
@@ -18,6 +18,11 @@
             <h2>{{Form::label('priority', 'Priority')}}</h2>
             {{Form::select('priority', ['high' => 'High', 'medium' => 'Medium', 'low' => 'Low'], 'low', ['class' => 'form-control'])}}
         </div>
+        <h2>Attachments</h2>
+        <div class="form-group">
+            {{Form::file('file')}}
+        <div>
+        <hr>
         {{Form::submit('Submit', ['class' => "btn btn-primary"])}}  
     {!! Form::close() !!}
 @endsection

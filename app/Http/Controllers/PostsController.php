@@ -4,9 +4,20 @@ namespace TicketSystem\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TicketSystem\Post;
+use Illuminate\Support\Facades\Storage;
+use DB;
 
 class PostsController extends Controller
 {
+   /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      * 
@@ -42,14 +53,27 @@ class PostsController extends Controller
         $this->validate($request, [
         'title' => 'required',
         'body' => 'required',
-        'priority' => 'required'
+        'priority' => 'required',
+        'file' => 'nullable|max:1999'
         ]);
+
+        //hanlde file upload
+        if($request->hasFile('file')) {
+            $fileNameWithExt = $request->file('file')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('file')->storeAs('public/file', $fileNameToStore);
+        } else {
+           $fileNameToStore = 'noimage.jpg';
+        }
 
         $post = new Post;
         $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
         $post->body = $request->input('body');
         $post->priority = $request->input('priority');
         $post->user_id = auth()->user()->id;
+        $post->file = $fileNameToStore;
         $post->save();
 
         return redirect('/posts')->with('success', 'Ticket Created'); //promijeni redirect
@@ -76,6 +100,9 @@ class PostsController extends Controller
 
      public function edit($id) {
         $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id) {
+         return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
         return view('posts.edit')->with('post', $post);
      }
 
@@ -92,11 +119,25 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
             ]);
+
+            $post = Post::find($id);
+
+            if($request->hasFile('file')) {
+               $fileNameWithExt = $request->file('file')->getClientOriginalName();
+               $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+               $extension = $request->file('file')->getClientOriginalExtension();
+               $fileNameToStore = $filename.'_'.time().'.'.$extension;
+               $path = $request->file('file')->storeAs('public/file', $fileNameToStore);
+               Storage::delete('public/file/'.$post->file);
+           }
     
             $post = Post::find($id);
             $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
             $post->body = $request->input('body');
             $post->priority = $request->input('priority');
+            if($request->hasFile('file')) {
+               $post->file = $fileNameToStore;
+            }
             $post->save();
     
             return redirect('/posts')->with('success', 'Ticket Updated'); //promijeni redirect
@@ -111,6 +152,13 @@ class PostsController extends Controller
 
      public function destroy($id) {
         $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+
+        //if($post->file != 'noimage.jpg') {
+            Storage::delete('public/file/'.$post->file);
+        //}
         $post->delete();
         return redirect('/posts')->with('success', 'Ticket Deleted');
      }
