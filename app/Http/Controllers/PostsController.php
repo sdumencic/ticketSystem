@@ -135,9 +135,7 @@ class PostsController extends Controller
             $post->title = $request->input('title'); //dodaj ostalo kao prioritet itd
             $post->body = $request->input('body');
             $post->priority = $request->input('priority');
-            if($request->hasFile('file')) {
-               $post->file = $fileNameToStore;
-            }
+            $post->file = $fileNameToStore;
             $post->save();
     
             return redirect('/posts')->with('success', 'Ticket Updated'); //promijeni redirect

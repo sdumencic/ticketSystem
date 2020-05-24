@@ -174,6 +174,7 @@ return [
         // TicketSystem\Providers\BroadcastServiceProvider::class,
         TicketSystem\Providers\EventServiceProvider::class,
         TicketSystem\Providers\RouteServiceProvider::class,
+        TicketSystem\Providers\BladeExtrasServiceProvider::class,
 
     ],
 
@@ -226,7 +227,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
 
 ];

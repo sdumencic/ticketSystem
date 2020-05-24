@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <!--<li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
@@ -33,23 +33,25 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/services">Service quokkas</a>
-              </li>
+              </li>-->
               <li class="nav-item">
                 <a class="nav-link" href="/posts">Ticket list</a>
               </li>
-              <li class="nav-item dropdown">
+              <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                   <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                </div>-->
+                @if (Auth::user()->hasAnyRole('admin'))
+                            <li class="nav-item">
+                              <a class="nav-link" href={{route('admin.users.index')}}>Manage users</a>
+                            </li>
+                            @endif 
             </ul>
 
-            
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="nav-link" href="/posts/create">Create Ticket</a></li>
-            </ul>
+            <a class="btn btn-success | text-center" style="position: fixed; width: 120px; left: 50%; margin-left: -60px;" href="/posts/create">Create Ticket</a>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -66,14 +68,15 @@
                 @else
 
                 <ul class="navbar-nav mr-auto">
+                  <!--<li><a class="btn btn-success | text-center" href="/posts/create">Create Ticket</a></li>-->
                   <li class="nav-item">
-                    <a class="nav-link" href="/home">Dashboard</a>
+                    <a class="nav-link" href="/home">My tickets</a>
                   </li>
-                  <li><a class="nav-link" href="/posts/create">Create Ticket</a></li>
+                  
                 </ul>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }}<span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">                            
@@ -81,13 +84,24 @@
                                Create Ticket
                             </a>
                             <a class="dropdown-item" href="/home">
-                                Dashboard
+                                My tickets
                             </a>
+                            @if (Auth::user()->hasAnyRole('admin'))
+                              <a class="dropdown-item" href={{route('admin.users.index')}}>Manage users</a>
+                            @endif 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+                            
+                              
+                            
+                            <!--@if (Auth::user()->hasAnyRole('admin'))
+                            <li class="nav-item">
+                              <a class="nav-link" href={{route('admin.users.index')}}>Manage users</a>
+                            </li>
+                            @endif -->
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf

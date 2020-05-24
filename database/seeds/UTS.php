@@ -14,6 +14,7 @@ class UTS extends Seeder
     public function run()
     {
         User::truncate();
+        DB::table('role_user')->truncate();
 
         $adminRole = Role::where('name', 'admin')->first();
         $employeeRole = Role::where('name', 'employee')->first();
@@ -40,5 +41,6 @@ class UTS extends Seeder
         $admin->roles()->attach($adminRole);
         $employee->roles()->attach($employeeRole);
         $user->roles()->attach($userRole);
-    } 
+        factory(TicketSystem\User::class, 20)->create();
+    }    
 }
