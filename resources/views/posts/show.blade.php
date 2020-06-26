@@ -5,6 +5,7 @@
 'ras', 'rgb', 'tif', 'tiff', 'wbmp', 'xbm', 'xpm', 'xwd'])
 
 @section('content')
+    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <br>    
     <h1>{{$post->title}}</h1>
     <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
@@ -27,11 +28,16 @@
     <div class="form-control">
         {{$post->user->email}}
     </div><br>
+
+    <h2>Status</h2>
+    <div class="form-control">
+        {{$post->status}}
+    </div>
     
     <br>
     <h2>Attachments</h2>
     <!--<div>{{$post->file}}</div>-->
-    @if($post->file) 
+    @if($post->file != 'noimage.jpg') 
     <a href = "/storage/file/{{$post->file}}/">{{$post->file}}</a>
     <!--<img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">-->
         
@@ -49,7 +55,7 @@
     </div><br>
     @endif
     <hr>
-    <a href = "/posts/{{$post->id}}/edit" class = "btn btn-primary">Edit</a>
+    <!--<a href = "/posts/{{$post->id}}/edit" class = "btn btn-primary">Edit</a>-->
     
 
     @if(Auth::user()->id == $post->user_id) <!--samo auth tko je napisao moze brisati-->
@@ -57,5 +63,10 @@
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
     {!!Form::close()!!}
+    <hr>    
     @endif
+    
+    {!!Form::close()!!}
+
+    
 @endsection

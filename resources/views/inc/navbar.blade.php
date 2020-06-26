@@ -33,25 +33,17 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/services">Service quokkas</a>
-              </li>-->
-              <li class="nav-item">
-                <a class="nav-link" href="/posts">Ticket list</a>
-              </li>
+              </li>-->              
               <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                   <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
-                </div>-->
-                @if (Auth::user()->hasAnyRole('admin'))
-                            <li class="nav-item">
-                              <a class="nav-link" href={{route('admin.users.index')}}>Manage users</a>
-                            </li>
-                            @endif 
+                </div>-->                
             </ul>
 
-            <a class="btn btn-success | text-center" style="position: fixed; width: 120px; left: 50%; margin-left: -60px;" href="/posts/create">Create Ticket</a>
+            <a class="btn btn-success | text-center" style="position: absolute; width: 120px; left: 50%; margin-left: -60px;" href="/posts/create">Create Ticket</a>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -68,7 +60,6 @@
                 @else
 
                 <ul class="navbar-nav mr-auto">
-                  <!--<li><a class="btn btn-success | text-center" href="/posts/create">Create Ticket</a></li>-->
                   <li class="nav-item">
                     <a class="nav-link" href="/home">My tickets</a>
                   </li>
@@ -88,7 +79,12 @@
                             </a>
                             @if (Auth::user()->hasAnyRole('admin'))
                               <a class="dropdown-item" href={{route('admin.users.index')}}>Manage users</a>
-                            @endif 
+                            @endif
+
+                            @if (Auth::user()->hasAnyRole('admin') OR Auth::user()->hasAnyRole('employee'))
+                            <a class="dropdown-item" href="/posts">Ticket list</a>
+                            @endif
+ 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -101,8 +97,9 @@
                             <li class="nav-item">
                               <a class="nav-link" href={{route('admin.users.index')}}>Manage users</a>
                             </li>
-                            @endif -->
+                            @endif-->
 
+                            
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>

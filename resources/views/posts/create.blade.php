@@ -18,6 +18,18 @@
             <h2>{{Form::label('priority', 'Priority')}}</h2>
             {{Form::select('priority', ['high' => 'High', 'medium' => 'Medium', 'low' => 'Low'], 'low', ['class' => 'form-control'])}}
         </div>
+        <!--@if (Auth::user()->hasAnyRole('admin') OR Auth::user()->hasAnyRole('employee'))
+            <div class = "form-group">
+            <h2>{{Form::label('status', 'Status')}}</h2>
+            {{Form::select('status', ['open' => 'Open', 'in_progress' => 'In progress', 'in_review' => 'In review', 'closed' => 'Closed'], 'low', ['class' => 'form-control'])}}
+            </div>
+        @endif-->
+        <!--<div class = "form-group">
+            <h2>{{Form::label('status', 'Status')}}</h2>
+            {{Form::select('status', ['open' => 'Open'], 'open', ['class' => 'form-control'])}}
+        </div>-->
+        <h2>{{Form::label('status', 'Status')}}</h2>
+        <p>{{Form::radio('status', 'open', true)}} &nbsp Open </p>
         <h2>Attachments</h2>
         <p>If you have more files to upload, please put them in a folder, zip it and upload it.</p>
         <div class="form-group">
