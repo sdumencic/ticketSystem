@@ -68,5 +68,8 @@
     
     {!!Form::close()!!}
 
-    
+    <div><h1>Comments</h1></div>
+    <div>
+        @comments(['model' => $post])
+    </div>
 @endsection

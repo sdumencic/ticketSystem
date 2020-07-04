@@ -40,4 +40,11 @@
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Submit', ['class' => "btn btn-primary"])}}  
     {!! Form::close() !!}
+
+    <hr>
+
+    <div><h1>Comments</h1></div>
+    <div>
+        @comments(['model' => $post])
+    </div>
 @endsection
