@@ -5,6 +5,8 @@ namespace TicketSystem\Http\Controllers;
 use Illuminate\Http\Request;
 use TicketSystem\Post;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use TicketSystem\User;
 use DB;
 
 class PostsController extends Controller
@@ -108,6 +110,9 @@ class PostsController extends Controller
    {
       $post = Post::find($id);
       if (auth()->user()->id !== $post->user_id) {
+         if(Auth::user()->hasAnyRole('admin') || Auth::user()->hasAnyRole('employee')) {
+            return view('posts.edit')->with('post', $post);
+         }
          return redirect('/posts')->with('error', 'Unauthorized Page');
       }
       
