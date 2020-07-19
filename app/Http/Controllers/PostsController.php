@@ -113,7 +113,7 @@ class PostsController extends Controller
          if(Auth::user()->hasAnyRole('admin') || Auth::user()->hasAnyRole('employee')) {
             return view('posts.edit')->with('post', $post);
          }
-         return redirect('/posts')->with('error', 'Unauthorized Page');
+         return redirect('/home')->with('error', 'Unauthorized Page'); //posts
       }
       
       return view('posts.edit')->with('post', $post);
@@ -156,7 +156,7 @@ class PostsController extends Controller
       $post->status = $request->input('status');
       $post->save();
 
-      return redirect('/posts')->with('success', 'Ticket Updated'); //promijeni redirect
+      return redirect('/home')->with('success', 'Ticket Updated'); //promijeni redirect posts
    }
 
    /**
@@ -170,7 +170,7 @@ class PostsController extends Controller
    {
       $post = Post::find($id);
       if (auth()->user()->id !== $post->user_id) {
-         return redirect('/posts')->with('error', 'Unauthorized Page');
+         return redirect('/home')->with('error', 'Unauthorized Page'); //posts
       }
 
       //if($post->file != 'noimage.jpg') {

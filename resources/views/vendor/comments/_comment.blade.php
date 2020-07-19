@@ -12,7 +12,7 @@
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 
         <div>
-            @can('reply-to-comment', $comment)
+            <!--@can('reply-to-comment', $comment)
                 <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm btn-link text-uppercase">Reply</button>
             @endcan
             @can('edit-comment', $comment)
@@ -24,7 +24,7 @@
                     @method('DELETE')
                     @csrf
                 </form>
-            @endcan
+            @endcan-->
         </div>
 
         @can('edit-comment', $comment)
