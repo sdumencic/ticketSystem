@@ -76,6 +76,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## Packages I used
 https://github.com/laravelista/comments
+
 https://github.com/LaravelCollective/laravelcollective.com
 
 
