@@ -15,8 +15,7 @@
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(0, 0)">Name &nbsp&nbsp ▲▼</th>
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(1, 0)">Email &nbsp&nbsp ▲▼</th>
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(2, 0)">Role &nbsp&nbsp ▲▼</th>
-                                <th style="cursor: pointer;" scope="col" style="text-align:right">Actions &nbsp&nbsp ▲▼</th>
-                                <th> </th>
+                                <th colspan="2" style="cursor: pointer; text-align:center;" scope="col">Actions</th>
                               </tr>
                             </thead>
                             <tbody id="myTable">

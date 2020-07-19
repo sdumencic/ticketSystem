@@ -52,7 +52,6 @@
         </div>
     </div>-->
         @endforeach
-        {{$posts->links()}}
         </tbody>
     </table>
 </div>

@@ -29,7 +29,7 @@ class PostsController extends Controller
    public function index()
    {
       //$posts = Post::all()->paginate(1); //koliko po stranici
-      $posts = Post::orderBy('status', 'asc')->paginate(12);
+      $posts = Post::orderBy('status', 'desc')->get();
       return view('posts.index')->with('posts', $posts);
       //ako zelimo sortirati $posts = Post::orderBy('title', 'asc' ili 'desc')->get();
       //ako zelimo s SQL use DB; i naredba $posts = DB::select('SELECT * FROM posts');
