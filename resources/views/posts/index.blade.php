@@ -73,7 +73,7 @@
     }
 </script>
     @else
-        <p>No posts found</p>
+        <p>No tickets found</p>
     @endif
 </div>
 @endsection
