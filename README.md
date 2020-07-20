@@ -20,6 +20,7 @@
 - [About this project](#about-this-project)
   - [What you need to run this project](#what-you-need-to-run-this-project)
   - [Installing](#installing)
+  - [Examples](#examples)
   - [License](#license)
 
 ## About Laravel
@@ -137,10 +138,27 @@ Follow these steps:
 3. Copy the *.env.example.* to a new *.env* file ```cp .env.example .env```
 4. Generate app_key ```php artisan key:generate``` 
 5. Go to PhpMyAdmin (open xampp -> in the row where MySQL is press Admin), now Create new Table, give it a name, put charset to utf8mb4_unicode_ci
-6. go to .env file in VS Code and put the name of DB_DATABASE=*the name you gave the table*
+6. Go to .env file in VS Code and put the name of DB_DATABASE=*the name you gave the table*
 7. Create the database with ```php artisan:migrate```
 
 For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
+
+## Examples
+Beginning site:
+
+<img src="https://i.ibb.co/6BY0jMT/Fire-Shot-Capture-042-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
+
+Ticket list for every user
+
+<img src="https://i.ibb.co/vzGHWFM/Fire-Shot-Capture-045-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-045-Ticket-System-lsapp-localhost" width="300"/>
+
+List of users visible only to admin, made with seeder
+
+<img src="https://i.ibb.co/FKKSTpF/Fire-Shot-Capture-048-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-048-Ticket-System-lsapp-localhost" width="300"/>
+
+List of all tickets visible to admin and employees
+
+<img src="https://i.ibb.co/ZW5hyq8/Capture.png" alt="Capture" width="300"/>
 
 ## License
 
