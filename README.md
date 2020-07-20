@@ -7,6 +7,21 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Ticketing system
+## Content
+- [Ticketing system](#ticketing-system)
+  - [Content](#content)
+  - [About Laravel](#about-laravel)
+  - [Learning Laravel](#learning-laravel)
+  - [Laravel Sponsors](#laravel-sponsors)
+  - [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
+  - [Security Vulnerabilities](#security-vulnerabilities)
+- [About this project](#about-this-project)
+  - [What you need to run this project](#what-you-need-to-run-this-project)
+  - [Installing](#installing)
+  - [License](#license)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
