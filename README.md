@@ -144,7 +144,7 @@ Follow these steps:
 For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
 
 ## Examples
-Beginning site:
+Beginning site
 
 <img src="https://i.ibb.co/6BY0jMT/Fire-Shot-Capture-042-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
 
