@@ -74,6 +74,59 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+# About this project
+
+## What you need to run this project
+To run this project, you will need to have: 
+- [Composer](https://getcomposer.org/)
+- [XAMPP](https://www.apachefriends.org/download.html)
+- [VS 2015 redistributable](https://www.microsoft.com/en-us/p/surface-book-3/8XBW9G3Z71F1?activetab=pivot%3aoverviewtab)
+
+I worked in [Visual Studio Code](https://code.visualstudio.com/download)
+
+It is also preferable to have [git bash](https://git-scm.com/downloads) for cloning this project and having some UNIX commands
+
+```
+git clone https://github.com/sdumencic/ticketSystem
+```
+
+## Installing
+Clone the repository to *C:\xampp\htdocs* 
+
+Go to  *C:\Windows\System32\drivers\etc* and open file *hosts*, there you should write 
+```
+127.0.0.1 localhost
+127.0.0.1 lsapp.localhost
+```
+at the bottom. 
+
+Also, you will need to open *C:\xampp\apache\conf\extra* and open file httpd-vhosts.conf and paste following code at the bottom:
+```
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/lsapp/public"
+    ServerName lsapp.localhost
+</VirtualHost>
+```
+Turn on xampp for Apache and MySQL.
+
+Now you are ready to open your project folder in VS Code. Open the integrated terminal which you should put to git bash.
+
+Follow these steps:
+1. Run ```composer install```
+2. Run ```npm install```
+3. Copy the *.env.example.* to a new *.env* file ```cp .env.example .env```
+4. Generate app_key ```php artisan key:generate``` 
+5. Go to PhpMyAdmin (open xampp -> in the row where MySQL is press Admin), now Create new Table, give it a name, put charset to utf8mb4_unicode_ci
+6. go to .env file in VS Code and put the name of DB_DATABASE=*the name you gave the table*
+7. Create the database with ```php artisan:migrate```
+
+For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
