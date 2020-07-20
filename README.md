@@ -7,6 +7,22 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Ticketing system
+## Content
+- [Ticketing system](#ticketing-system)
+  - [Content](#content)
+  - [About Laravel](#about-laravel)
+  - [Learning Laravel](#learning-laravel)
+  - [Laravel Sponsors](#laravel-sponsors)
+  - [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
+  - [Security Vulnerabilities](#security-vulnerabilities)
+- [About this project](#about-this-project)
+  - [What you need to run this project](#what-you-need-to-run-this-project)
+  - [Installing](#installing)
+  - [Examples](#examples)
+  - [License](#license)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -73,6 +89,76 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+# About this project
+
+## What you need to run this project
+To run this project, you will need to have: 
+- [Composer](https://getcomposer.org/)
+- [XAMPP](https://www.apachefriends.org/download.html)
+- [VS 2015 redistributable](https://www.microsoft.com/en-us/p/surface-book-3/8XBW9G3Z71F1?activetab=pivot%3aoverviewtab)
+
+I worked in [Visual Studio Code](https://code.visualstudio.com/download)
+
+It is also preferable to have [git bash](https://git-scm.com/downloads) for cloning this project and having some UNIX commands
+
+```
+git clone https://github.com/sdumencic/ticketSystem
+```
+
+## Installing
+Clone the repository to *C:\xampp\htdocs* 
+
+Go to  *C:\Windows\System32\drivers\etc* and open file *hosts*, there you should write 
+```
+127.0.0.1 localhost
+127.0.0.1 lsapp.localhost
+```
+at the bottom. 
+
+Also, you will need to open *C:\xampp\apache\conf\extra* and open file httpd-vhosts.conf and paste following code at the bottom:
+```
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/lsapp/public"
+    ServerName lsapp.localhost
+</VirtualHost>
+```
+Turn on xampp for Apache and MySQL.
+
+Now you are ready to open your project folder in VS Code. Open the integrated terminal which you should put to git bash.
+
+Follow these steps:
+1. Run ```composer install```
+2. Run ```npm install```
+3. Copy the *.env.example.* to a new *.env* file ```cp .env.example .env```
+4. Generate app_key ```php artisan key:generate``` 
+5. Go to PhpMyAdmin (open xampp -> in the row where MySQL is press Admin), now Create new Table, give it a name, put charset to utf8mb4_unicode_ci
+6. Go to .env file in VS Code and put the name of DB_DATABASE=*the name you gave the table*
+7. Create the database with ```php artisan:migrate```
+
+For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
+
+## Examples
+Beginning site
+
+<img src="https://i.ibb.co/6BY0jMT/Fire-Shot-Capture-042-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
+
+Ticket list for every user
+
+<img src="https://i.ibb.co/vzGHWFM/Fire-Shot-Capture-045-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-045-Ticket-System-lsapp-localhost" width="300"/>
+
+List of users visible only to admin, made with seeder
+
+<img src="https://i.ibb.co/FKKSTpF/Fire-Shot-Capture-048-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-048-Ticket-System-lsapp-localhost" width="300"/>
+
+List of all tickets visible to admin and employees
+
+<img src="https://i.ibb.co/ZW5hyq8/Capture.png" alt="Capture" width="300"/>
 
 ## License
 
