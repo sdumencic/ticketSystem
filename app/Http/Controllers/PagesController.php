@@ -3,13 +3,18 @@
 namespace TicketSystem\Http\Controllers;
 
 use Illuminate\Http\Request;
+use TicketSystem\Post;
 
 class PagesController extends Controller
 {
     public function index() {
         $title = 'Welcome to our ticket system';
-        //return view('pages.index', compact('title'));
-        return view('pages.index')->with('title', $title);
+        $lastTicket = Post::latest()->first();
+        $openTickets = Post::where('status', 'open')->count();
+        $closedTickets = Post::where('status', 'closed')->count();
+        $reviewTickets = Post::where('status', 'in review')->count();
+        $progressTickets = Post::where('status', 'in progress')->count();
+        return view('pages.index', ['title'=>$title, 'lastTicket'=>$lastTicket, 'openTickets'=>$openTickets, 'closedTickets'=>$closedTickets, 'progressTickets'=>$progressTickets, 'reviewTickets'=>$reviewTickets]);
     }
 
     public function about() {

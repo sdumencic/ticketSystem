@@ -22,7 +22,7 @@ class PostsController extends Controller
    }
    /**
     * Display a listing of the resource.
-    * 
+    *
     * @return \Illuminate\Http\Response
     */
 
@@ -37,7 +37,7 @@ class PostsController extends Controller
 
    /**
     * Show the form for creating a new resource.
-    * 
+    *
     * @return \Illuminate\Http\Response
     */
 
@@ -48,7 +48,7 @@ class PostsController extends Controller
 
    /**
     * Store a newly created resource in storage.
-    * 
+    *
     * @param \Illuminate\Http\Request $request
     * @return \Illuminate\Http\Response
     */
@@ -88,7 +88,7 @@ class PostsController extends Controller
 
    /**
     * Display the specified resource.
-    * 
+    *
     * @param int $id
     * @return \Illuminate\Http\Response
     */
@@ -101,7 +101,7 @@ class PostsController extends Controller
 
    /**
     * Show the form for editing the specified resource.
-    * 
+    *
     * @param int $id
     * @return \Illuminate\Http\Response
     */
@@ -115,13 +115,13 @@ class PostsController extends Controller
          }
          return redirect('/home')->with('error', 'Unauthorized Page'); //posts
       }
-      
+
       return view('posts.edit')->with('post', $post);
    }
 
    /**
     * Update the specified resource in storage.
-    * 
+    *
     * @param \Illuminate\Http\Request $request
     * @param int $id
     * @return \Illuminate\Http\Response
@@ -135,7 +135,7 @@ class PostsController extends Controller
          'file' => 'nullable|max:1999'
       ]);
 
-      $post = Post::find($id);      
+      $post = Post::find($id);
 
       if ($request->hasFile('file')) {
          $fileNameWithExt = $request->file('file')->getClientOriginalName();
@@ -156,12 +156,15 @@ class PostsController extends Controller
       $post->status = $request->input('status');
       $post->save();
 
+      if(Auth::user()->hasAnyRole('admin') || Auth::user()->hasAnyRole('employee')) {
+        return redirect('/posts')->with('success', 'Ticket Updated');
+      }
       return redirect('/home')->with('success', 'Ticket Updated'); //promijeni redirect posts
    }
 
    /**
     * Remove the specified resource from storage.
-    * 
+    *
     * @param int $id
     * @return \Illuminate\Http\Response
     */

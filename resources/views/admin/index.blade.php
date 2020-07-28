@@ -10,12 +10,12 @@
                         <input class="form-control | w-25 p-3" id="myInput" type="text" placeholder="Search..">
                         <hr>
                         <table class="table table-striped" id="UserList">
-                            <thead style="background: grey; color: white">
+                            <thead style="background: linear-gradient(90deg, rgba(64,71,61,0.26684177088804273) 0%, rgba(9,96,121,0.3144608185070903) 52%, rgba(0,212,255,0.25843840954350494) 100%);">
                               <tr>
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(0, 0)">Name &nbsp&nbsp ▲▼</th>
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(1, 0)">Email &nbsp&nbsp ▲▼</th>
                                 <th style="cursor: pointer;" scope="col" onClick="sortTable(2, 0)">Role &nbsp&nbsp ▲▼</th>
-                                <th colspan="2" style="cursor: pointer; text-align:center;" scope="col">Actions</th>
+                                <th colspan="2" style="cursor: pointer; text-align: center;" scope="col">Actions &nbsp&nbsp ▲▼</th>
                               </tr>
                             </thead>
                             <tbody id="myTable">
@@ -25,7 +25,7 @@
                                     <th>{{$user->email}}</th>
                                     <th>{{implode($user->roles()->get()->pluck('name')->toArray())}}</th>
                                     <th> <a href="{{route('admin.users.edit', $user->id)}}" class = "float-right">
-                                                <button type="button" class = "btn btn-outline-secondary">Edit</button>                                         
+                                                <button type="button" class = "btn btn-outline-secondary">Edit</button>
                                     </th>
                                     <th><form action = "{{route('admin.users.destroy', $user->id)}}" method = "POST" class = "float-right">
                                         @csrf
@@ -34,7 +34,7 @@
                                         </form>
                                     </th>
                                 </tr>
-                                @endforeach                              
+                                @endforeach
                             </tbody>
                           </table>
                 </div>
@@ -48,12 +48,12 @@
                       });
                       //$("#UserList").tablesorter();
                     });
-                </script>  
+                </script>
                 <script>
                     function sortTable(columnId, descending) {
                         $("#UserList").tablesorter({ sortList: [[columnId,descending]] });
                     }
-                </script>           
+                </script>
             </div>
         </div>
     </div>

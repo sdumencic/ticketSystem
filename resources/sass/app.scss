@@ -6,3 +6,16 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.blur {
+    transition: all 0.5s;
+}
+
+.index:hover .blur { //card-img-top
+    filter: sepia(70%) hue-rotate(90deg);
+}
+
+.ticket:hover {
+    transition: 0.5s;
+    filter: sepia(70%) hue-rotate(90deg);
+}

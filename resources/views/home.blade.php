@@ -20,9 +20,7 @@
                         You are logged in!
                         <table class = "table table-striped">
                             <tr>
-                                <th>Title</th>
-                                <th></th>
-                                <th></th>
+                                <th colspan="3" style="background: linear-gradient(90deg, rgba(64,71,61,0.26684177088804273) 0%, rgba(9,96,121,0.3144608185070903) 52%, rgba(0,212,255,0.25843840954350494) 100%);">Title</th>
                             </tr>
                             @foreach($posts as $post)
                                 <tr>

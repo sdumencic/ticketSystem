@@ -2215,11 +2215,6 @@ pre code {
   box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
-.form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -10956,5 +10951,14 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.blur {
+  transition: all 0.5s;
+}
+
+.index:hover .blur {
+  -webkit-filter: sepia(70%) hue-rotate(90deg);
+          filter: sepia(70%) hue-rotate(90deg);
 }
 
