@@ -146,19 +146,23 @@ For running this project in a browser, you will need to turn on Apache and MySQL
 ## Examples
 Beginning site
 
-<img src="https://i.ibb.co/6BY0jMT/Fire-Shot-Capture-042-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
+<img src="https://ibb.co/wRNjZQh" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
+
+Beginning site for admin and employees
+
+<img src="https://ibb.co/3NJzP9T" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
 
 Ticket list for every user
 
-<img src="https://i.ibb.co/vzGHWFM/Fire-Shot-Capture-045-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-045-Ticket-System-lsapp-localhost" width="300"/>
+<img src="https://ibb.co/1Z3HpTW" alt="Fire-Shot-Capture-045-Ticket-System-lsapp-localhost" width="300"/>
 
 List of users visible only to admin, made with seeder
 
-<img src="https://i.ibb.co/FKKSTpF/Fire-Shot-Capture-048-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-048-Ticket-System-lsapp-localhost" width="300"/>
+<img src="https://ibb.co/7SwHN59" alt="Fire-Shot-Capture-048-Ticket-System-lsapp-localhost" width="300"/>
 
 List of all tickets visible to admin and employees
 
-<img src="https://i.ibb.co/ZW5hyq8/Capture.png" alt="Capture" width="300"/>
+<img src="https://ibb.co/yknZ2jQ" alt="Capture" width="300"/>
 
 ## License
 
