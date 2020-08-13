@@ -162,7 +162,7 @@ List of users visible only to admin, made with seeder
 
 List of all tickets visible to admin and employees
 
-<img src="https://i.ibb.co/85hcQLm/Fire-Shot-Capture-106-Ticket-System-lsapp-localhost.png" width="300"/>
+<img src="https://i.ibb.co/JpRGZJs/Fire-Shot-Capture-103-Ticket-System-lsapp-localhost.png" width="300"/>
 
 ## License
 
