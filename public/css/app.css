@@ -10960,5 +10960,36 @@ a.text-dark:focus {
 .index:hover .blur {
   -webkit-filter: sepia(70%) hue-rotate(90deg);
           filter: sepia(70%) hue-rotate(90deg);
+  transform: rotateY(360deg);
+}
+
+.ticket:hover {
+  transition: 0.5s;
+  -webkit-filter: sepia(70%) hue-rotate(90deg);
+          filter: sepia(70%) hue-rotate(90deg);
+}
+
+.services:hover {
+  transition: 1s;
+  transform: rotateX(360deg);
+  -webkit-filter: hue-rotate(300deg);
+          filter: hue-rotate(300deg);
+}
+
+.services2:hover {
+  transition: 1s;
+  -webkit-filter: hue-rotate(300deg);
+          filter: hue-rotate(300deg);
+}
+
+.services-block {
+  background: #fff;
+  border-radius: 7px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 

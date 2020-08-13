@@ -9,7 +9,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+            </ul>
+
 
             <a class="btn btn-success | text-center" style="position: absolute; width: 120px; left: 50%; margin-left: -60px;" href="/posts/create">Create Ticket</a>
 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<section>
 <div class = "jumbotron text-center" style="background: linear-gradient(90deg, rgba(64,71,61,0.26684177088804273) 0%, rgba(9,96,121,0.3144608185070903) 52%, rgba(0,212,255,0.25843840954350494) 100%);">
     @if (Auth::user())
         @if(Auth::user()->hasAnyRole('user'))
@@ -56,4 +57,36 @@
         <p>For creating a ticket press "create ticket"</p>
         <p><a class = "btn btn-primary" href="/login" role="button">Login</a> <a class="btn btn-success" href = "/register" role = "button">Register</a><p>
     @endif
+    </section>
+
+    <section class="bg-light-gray" id = "info">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-12 sm-margin-20px-bottom services">
+                    <div class="services-block" style="background-color: rgba(64,71,61,0.26684177088804273);">
+                        <div>VISIT OUR OFFICE</div>
+                        <p class="center-col"> Address 123,
+                            <br>12345 Town</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 sm-margin-20px-bottom services">
+                    <div class="services-block" style="background-color: rgba(9,96,121,0.3144608185070903);">
+                        <div>PHONE NUMBER</div>
+                        <p class="center-col">📱: +123 456 789</p> <br>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 services">
+                    <div class="services-block" style="background-color: rgba(0,212,255,0.25843840954350494);">
+                        <div>E-MAIL</div>
+                        <p class="center-col">📧: test@test.com</p><br>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 @endsection

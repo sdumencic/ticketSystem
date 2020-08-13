@@ -13,9 +13,34 @@
 
 .index:hover .blur { //card-img-top
     filter: sepia(70%) hue-rotate(90deg);
+    transform: rotateY(360deg);
 }
 
 .ticket:hover {
     transition: 0.5s;
     filter: sepia(70%) hue-rotate(90deg);
 }
+
+.services:hover {
+    transition: 1s;
+    transform: rotateX(360deg);
+    filter: hue-rotate(300deg);
+}
+
+.services2:hover {
+    transition: 1s;
+    filter: hue-rotate(300deg);
+}
+
+.services-block {
+    background: #fff;
+    border-radius: 7px;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+
