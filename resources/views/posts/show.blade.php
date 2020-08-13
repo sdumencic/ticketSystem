@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @php ($imageExtensions = ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'svg', 'svgz',
 'cgm', 'djv', 'djvu', 'ico', 'ief','jpe', 'pbm', 'pgm', 'pnm', 'ppm',
@@ -36,14 +36,8 @@
     
     <br>
     <h2>Attachments</h2>
-    <!--<div>{{$post->file}}</div>-->
     @if($post->file != 'noimage.jpg') 
     <a href = "/storage/file/{{$post->file}}/">{{$post->file}}</a>
-    <!--<img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">-->
-        
-        <!--@if(pathinfo(storage_path().'/storage/file/'.$post->file, PATHINFO_EXTENSION) == 'jpg')
-            <img style="width:50%" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">
-        @endif-->
 
         @if(in_array(pathinfo(storage_path().'/storage/file/'.$post->file, PATHINFO_EXTENSION), $imageExtensions))
             <img style="max-width:30%; max-height:30%;" class = "rounded mx-auto d-block" src = "/storage/file/{{$post->file}}">
@@ -55,10 +49,8 @@
     </div><br>
     @endif
     <hr>
-    <!--<a href = "/posts/{{$post->id}}/edit" class = "btn btn-primary">Edit</a>-->
-    
 
-    @if(Auth::user()->id == $post->user_id) <!--samo auth tko je napisao moze brisati-->
+    @if(Auth::user()->id == $post->user_id)
     {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST',  'class' => 'float-right'])!!}
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
@@ -72,4 +64,4 @@
     <div>
         @comments(['model' => $post])
     </div>
-@endsection
+@endsection -->
