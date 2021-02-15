@@ -139,7 +139,7 @@ Follow these steps:
 4. Generate app_key ```php artisan key:generate``` 
 5. Go to PhpMyAdmin (open xampp -> in the row where MySQL is press Admin), now Create new Table, give it a name, put charset to utf8mb4_unicode_ci
 6. Go to .env file in VS Code and put the name of DB_DATABASE=*the name you gave the table*
-7. Create the database with ```php artisan:migrate```
+7. Create the database with ```php artisan migrate```
 
 For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
 
