@@ -144,25 +144,25 @@ Follow these steps:
 For running this project in a browser, you will need to turn on Apache and MySQL in xampp and write ticketsystem.localhost in the URL.
 
 ## Examples
-Beginning site
+Home page
 
-<img src="https://i.ibb.co/R9pdG6T/Fire-Shot-Capture-093-Ticket-System-lsapp-localhost.png" alt="Fire-Shot-Capture-042-Ticket-System-lsapp-localhost" width="300"/>
+<img src="images/1.png" alt="home page" width="300"/>
 
-Beginning site for admin and employees
+Home page for admin and employees
 
-<img src="https://i.ibb.co/85hcQLm/Fire-Shot-Capture-106-Ticket-System-lsapp-localhost.png" width="300"/>
+<img src="images/2.png" alt="home page" width="300"/>
 
 Ticket list for every user
 
-<img src="https://i.ibb.co/mJmQY4W/Fire-Shot-Capture-096-Ticket-System-lsapp-localhost.png" width="300"/>
+<img src="images/3.png" alt="ticket list" width="300"/>
 
 List of users visible only to admin, made with seeder
 
-<img src="https://i.ibb.co/K5MYzk1/Fire-Shot-Capture-099-Ticket-System-lsapp-localhost.png" width="300"/>
+<img src="images/4.png" alt="user list" width="300"/>
 
 List of all tickets visible to admin and employees
 
-<img src="https://i.ibb.co/JpRGZJs/Fire-Shot-Capture-103-Ticket-System-lsapp-localhost.png" width="300"/>
+<img src="images/5.png" alt="ticket list" width="300"/>
 
 ## License
 
